@@ -1,1 +1,18 @@
+from openai import OpenAI
 
+client = OpenAI(api_key="SUA_CHAVE_API_AQUI")
+
+prompt = """
+Um retrato realista do jogador de futebol Neymar, em campo de futebol,
+usando uniforme da seleção brasileira, iluminação cinematográfica,
+alta definição, estilo foto esportiva profissional
+"""
+
+response = client.images.generate(
+    model="gpt-image-1",
+    prompt=prompt,
+    size="1024x1024"
+)
+
+image_url = response.data[0].url
+print("URL da imagem:", image_url)
