@@ -1,65 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Blog do Vitinho</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f2f2f2;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog do Vitinho</title>
+    <style>
+        header {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
 
-    header {
-      background-color: #4a90e2;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
 
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
+        article {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
 
-    img {
-      width: 100%;
-      border-radius: 10px;
-    }
+        img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
 
-    footer {
-      text-align: center;
-      padding: 10px;
-      color: #666;
-      margin-top: 20px;
-    }
-  </style>
+        .artigo-autor {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <h1>Blog do Vitinho</h1>
+        <p>Bem-vindo ao meu blog 😄</p>
+    </header>
 
-  <header>
-    <h1>Blog do Vitinho</h1>
-    <p>Bem-vindo ao meu blog 😄</p>
-  </header>
+    <main>
+        <article>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Goat_in_Field.jpg"
+                alt="Imagem de um bode no campo.">
+            <div>
+                <h2>Meu bode favorito 🐐</h2>
+                <p class="artigo-autor">Por: Vitinho</p>
+                <p>
+                    Esse é um post especial sobre meu bode favorito! Ele é muito engraçado e curioso.
+                    Aqui no blog do Vitinho você vai ver várias histórias e imagens legais.
+                </p>
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
 
-  <div class="container">
-    <h2>Meu bode favorito 🐐</h2>
-    
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Goat_in_Field.jpg" alt="Imagem de um bode">
+        <article>
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><rect width='80' height='80' rx='10' fill='%234a90e2'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='40'>🐐</text></svg>"
+                alt="Ícone quadrado de 80x80px de um bode.">
+            <div>
+                <h2>Curiosidades sobre Bodes</h2>
+                <p class="artigo-autor">Por: Vitinho</p>
+                <p>Você sabia que os bodes têm uma visão panorâmica incrível? Em breve trarei mais novidades por aqui!</p>
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+    </main>
 
-    <p>
-      Esse é um post especial sobre meu bode favorito! Ele é muito engraçado e curioso.
-      Aqui no blog do Vitinho você vai ver várias histórias e imagens legais.
-    </p>
-  </div>
+    <script>
+        const botoes = document.querySelectorAll("button");
 
-  <footer>
-    © 2026 Blog do Vitinho
-  </footer>
+        botoes.forEach(function (botao) {
+            let curtiu = false;
+            botao.addEventListener("click", botaoClicado);
 
+            function botaoClicado() {
+                console.log("fui clicado");
+                let texto = botao.querySelector("span");
+                if (curtiu === false) {
+                    texto.textContent++;
+                    curtiu = true;
+                } else {
+                    texto.textContent--;
+                    curtiu = false;
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>
